@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8">
+    <title>Desafio 01</title>
+    <script src="https://unpkg.com/vue@2"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Using vueJs</h1>
+      <p>by <b>{{name}} ({{age}} year<span v-if="age > 1">s</span>)</b></p>
+      <br>
+      <p>my age multiplying by 3 = {{age*3}}</p>
+      <br>
+      <p>{{Math.floor(Math.random() * (10-1) + 1)}}</p>
+      <br>
+      <div>
+        <img :src="img" height="200">
+      </div>
+      <br>
+      <div>
+        <label for="name">
+          <span>Name:</span>
+          <input type="text" name="name" id="name" v-model="name">
+        </label>
+        <label for="age">
+          <span>Age</span>
+          <input type="text" name="age" id="age" v-model="age">
+        </label>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script src="script.js"></script>
