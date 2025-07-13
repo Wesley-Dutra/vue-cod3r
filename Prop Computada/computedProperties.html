@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Keyboard Event</title>
+        <script src="https://unpkg.com/vue@2"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <link rel="stylesheet" href="../style.css">
+    </head>
+    <body>
+        <div id="app">
+            <div class="dft-back">
+                <h3>Two-Way-Data-Binding</h3>
+                <br>
+                <div>
+                    <button class="btn-default" @click="increaseCount">Increase</button>
+                    <button class="btn-default" @click="counter2 += 2">Increase 2</button>
+                    <button class="btn-default" style="background-color: #323232" @click="decreaseCount">Decrease</button>
+                </div>
+                <br>
+                <p>Counter: {{counter}} || {{counter2}}</p>
+                <p>Result: <span style="color: #85b62e">{{result}}</span></p>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                counter: 0,
+                counter2: 0
+            },
+            watch: {
+                counter() {
+                    setTimeout(() => {
+                        this.counter = 0
+                    }, 3000)
+                }
+            },
+            computed: {
+                result() {
+                    return this.counter >= 5 ? 'Greater than or Equal 5' :  'Less than 5'
+                }
+            },
+            methods: {
+                increaseCount() {
+                    this.counter++
+                },
+                decreaseCount() {
+                    this.counter <= 0 ? this.counter = 0 : this.counter--
+                }
+            }
+        })
+    </script>
+</html>

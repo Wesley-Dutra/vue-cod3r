@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8">
+    <title>Desafio 01</title>
+    <script src="https://unpkg.com/vue@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="../../style.css">
+  </head>
+  <body>
+    <div id="app">
+      <div  class="dft-back">
+        <p>Value: {{value}}</p>
+        <br>
+        <div>
+          <button class="btn-default" @click="value += 5">Increase 5</button>
+          <button class="btn-default" @click="value++">Increase 1</button>
+        </div>
+        <br>
+        <p>{{result}}</p>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script src="script.js"></script>
