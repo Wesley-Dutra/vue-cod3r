@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Keyboard Event</title>
+        <script src="https://unpkg.com/vue@2"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <link rel="stylesheet" href="../style.css">
+        <style>
+            .dft-in {
+                display: flex;
+                justify-content: space-around;
+                width: 100%;
+            }
+
+            .demo {
+                width: 50px;
+                height: 50px;
+                background-color: #85b62e;
+            }
+
+            h3 {
+                width: 100%;
+            }
+
+            .c1 {
+                background-color: red;
+            }
+            .c2 {
+                background-color: yellow;
+            }
+            .c3 {
+                 background-color: cyan;
+             }
+
+            .gira {
+                rotate: 45deg;
+            }
+
+            .input-box input {
+                width: 30%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <div class="dft-back">
+                <h3>Dynamic Style 01</h3>
+                <div class="dft-in">
+                    <div class="demo" :class="{c1: applyC1}" @click="applyC1 = !applyC1"></div>
+                    <div class="demo" :class="{c2: applyC2}" @click="applyC2 = !applyC2"></div>
+                    <div class="demo" :class="{c3: applyC3}" @click="applyC3 = !applyC3"></div>
+                </div>
+                <hr>
+                <h3>Dynamic Style 02</h3>
+                <div class="dft-in">
+                    <div class="demo" :class="style1" @click="applyC1 = !applyC1"></div>
+                    <div class="demo" :class="[{c2: applyC2}, check]" @click="applyC2 = !applyC2"></div>
+                    <div class="demo" :class="check"></div>
+                </div>
+                <br>
+                <input placeholder="Class" type="text" v-model="check">
+                <hr>
+                <h3>Dynamic Style 03</h3>
+                <div class="dft-in">
+                    <div class="demo" :style="{'background-color': color}"></div>
+                    <div class="demo" :style="[{'background-color': color}, boxSize]"></div>
+                    <div class="demo" :style="{'background-color': color}"></div>
+                </div>
+                <br>
+                <div class="input-box">
+                    <input placeholder="Color" type="text" v-model="color">
+                    <input placeholder="Height" type="text" v-model="boxHeight">
+                    <input placeholder="Width" type="text" v-model="boxWidth">
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data: {
+                applyC1: false,
+                applyC2: false,
+                applyC3: false,
+                check: '',
+                color: '',
+                boxHeight: '',
+                boxWidth: 25
+            },
+            computed: {
+                style1() {
+                    return {
+                        c3: this.applyC1,
+                        c2: !this.applyC1
+                    }
+                },
+                boxSize() {
+                    return {
+                        height: this.boxHeight + 'px',
+                        width: this.boxWidth + 'px'
+                    }
+                }
+            }
+        })
+    </script>
+</html>

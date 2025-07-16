@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Keyboard Event</title>
+        <script src="https://unpkg.com/vue@2"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <link rel="stylesheet" href="../style.css">
+        <style>
+            .dft-in {
+                display: flex;
+                justify-content: space-around;
+                width: 100%;
+            }
+
+            .demo {
+                width: 50px;
+                height: 50px;
+                background-color: #85b62e;
+            }
+
+            h3 {
+                width: 100%;
+            }
+
+            .c1 {
+                background-color: red;
+            }
+            .c2 {
+                background-color: yellow;
+            }
+            .c3 {
+                 background-color: cyan;
+             }
+
+            .gira {
+                rotate: 45deg;
+            }
+
+            .input-box {
+                display: flex;
+                justify-content: space-evenly;
+            }
+
+            .input-box input {
+                width: 30%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <div class="dft-back">
+                <h3>Dynamic Style 02</h3>
+                <div class="dft-in">
+                    <div class="demo"></div>
+                    <div class="demo"></div>
+                    <div class="demo"></div>
+                </div>
+                <br>
+                <div class="input-box">
+                    <input placeholder="Color" type="text" v-model="color">
+                    <input placeholder="Height" type="text" v-model="boxHeight">
+                    <input placeholder="Width" type="text" v-model="boxWidth">
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data: {
+
+            },
+            computed: {
+
+            }
+        })
+    </script>
+</html>

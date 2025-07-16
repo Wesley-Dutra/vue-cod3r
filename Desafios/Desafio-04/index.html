@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8">
+    <title>Desafio 01</title>
+    <script src="https://unpkg.com/vue@2"></script>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+      h1 {
+        width: 100%;
+      }
+
+      .dft-in {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #efectArea {
+        background-color: #252525;
+        width: 100%;
+        height: 100px;
+        margin: 20px 0;
+        border: 1px solid #85b62e;
+        border-radius: 4px;
+      }
+
+      .collapse {
+        animation: collapseEffect 3s infinite;
+      }
+
+      @keyframes collapseEffect {
+        0% {
+          width: 100%;
+        }
+        25% {
+          width: 0%;
+          background-color: rgba(66, 66, 66, 0.25);
+        }
+        100% {
+          width: 100%;
+        }
+      }
+
+      .txt-color {
+        color: rgba(201, 225, 143, 0.89);
+        text-align: center;
+      }
+
+      .txt-bg {
+        background-color: rgba(133, 182, 46, 0.69);
+        border-radius: 4px;
+        width: 100%;
+        padding: 5px 0;
+        margin: 20px 0;
+      }
+
+      .box-xl {
+        width: 100%;
+        height: 300px;
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 35px;
+        border: 1px solid #85b62e;
+        border-radius: 4px;
+        margin: 20px 0;
+      }
+
+      #progressBar {
+        height: 100%;
+        width: 0;
+        border-radius: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div  class="dft-back">
+        <h1>#1</h1>
+        <div class="dft-in">
+          <div id="efectArea" :class="effectOn"></div>
+          <button class="btn-default" @click="startEffect">Start Animate</button>
+        </div>
+        <hr>
+        <h1>#2</h1>
+        <div class="dft-in">
+          <div :class="['txt-color','txt-bg']">I'm without class!</div>
+        </div>
+        <hr>
+        <h1>#3</h1>
+        <div class="dft-in">
+          <div :class="classInput"></div>
+          <input type="text" placeholder="Class (box-xl txt-bg)" v-model="classInput">
+        </div>
+        <hr>
+        <h1>#4</h1>
+        <div class="dft-in">
+          <div :class="[classInput2, {'txt-bg':classCheckbox}]"></div>
+          <div class="input-box">
+            <input type="text" placeholder="Class" v-model="classInput2">
+            <label>
+              <input type="checkbox" v-model="classCheckbox">
+              <span class="custom-checkbox"></span>
+            </label>
+          </div>
+        </div>
+        <hr>
+        <h1>#5</h1>
+        <div class="dft-in">
+          <div :style="[stylehw, {'background-color':color, 'border-radius':'4px'}]"></div>
+          <input type="text" placeholder="Background Color" v-model="color">
+        </div>
+        <hr>
+        <h1>#6</h1>
+        <div class="dft-in">
+          <div class="progress-bar" :style="{'border-color': bgColor}">
+            <div id="progressBar" :style="{width: progress+'%', 'background-color': bgColor}"></div>
+          </div>
+          <button class="btn-default" @click="startProgress">Start Progress</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script src="script.js"></script>
