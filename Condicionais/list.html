@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@2"></script>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .li-style {
+            list-style: none;
+            padding: 10px 40px;
+            margin: 20px 0;
+            width: 100%;
+            border-radius: 4px;
+            background-color: #323232;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="dft-back">
+            <div class="dft-back">
+                <ul>
+                    <li v-for="color  in colors" :style="{color: color}">{{ color }}</li>
+                </ul>
+            </div>
+            <hr>
+            <div class="dft-back">
+                <ul>
+                    <li v-for="(color, i) in colors" :style="{color: color}">{{ color }} - {{ i+1 }}</li>
+                </ul>
+            </div>
+            <hr>
+            <div class="dft-back">
+                <ul>
+                    <li v-for="people in persons"  class="li-style">
+                        <p v-for="(infos, key) in people">
+                            {{ key }} - {{ infos }}
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <hr>
+            <div class="dft-back">
+                <ul>
+                    <li v-for="(n, i) in 10">{{ n }}</li>
+                </ul>
+            </div>
+            <hr>
+            <div class="dft-back">
+                <ul>
+                    <li v-for="(n, i) in 10">{{ n }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            colors: ['magenta', 'lime', 'yellow', 'cyan'],
+            persons: [
+                { name: 'Hugo', age: 23, weight: 67.41 },
+                { name: 'Luiza', age: 45, weight: 80.54 }
+            ]
+        }
+    })
+</script>
+</html>

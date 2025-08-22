@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@2"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div id="app">
+        <div class="dft-back">
+            <div class="dft-back">
+                <p v-if="login">Logged In User: {{ name  }}</p>
+                <p v-else>No One Logged In!</p>
+            </div>
+            <button class="btn-default" @click="login = !login">{{ !login ? 'Login' : 'Logout' }}</button>
+            <hr>
+            <div class="dft-back">
+                <template v-if="image">
+                    <img src="https://files.tecnoblog.net/wp-content/uploads/2023/12/exemplo-imagen-2-2.jpg" width="200">
+                </template>
+                <button class="btn-default" @click="image = !image">{{ !login ? 'Show' : 'Hide' }}</button>
+            </div>
+            <hr>
+            <div class="dft-back" v-show="login">
+                <p>Welcome {{ name }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            name: 'Test',
+            login:  false,
+            image: true,
+        }
+    })
+</script>
+</html>

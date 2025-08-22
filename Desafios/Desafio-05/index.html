@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8">
+    <title>Desafio 01</title>
+    <script src="https://unpkg.com/vue@2"></script>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+      ul {
+        list-style: none;
+        padding: 10px 40px;
+        margin: 10px 0;
+        width: 100%;
+        border-radius: 4px;
+        background-color: #323232;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div  class="dft-back">
+        <h1>#1</h1>
+        <div class="dft-in">
+          <button class="btn-default" @click="see = !see">Change</button>
+          <template v-if="see">
+            <p>Do You Wanna see me?</p>
+          </template>
+          <div v-show="!see">
+            <p>You are seeing me</p>
+          </div>
+        </div>
+        <hr>
+        <h1>#2</h1>
+        <div class="dft-in">
+          <ul>
+            <li v-for="(songs, i) in wickedSongs">{{ i+1 }}) {{ songs }}</li>
+          </ul>
+        </div>
+        <hr>
+        <h1>#3</h1>
+        <div class="dft-in">
+          <ul>
+            <li v-for="(infos, key, i) in book">{{ i+1 }} {{ key }} {{ infos }}</li>
+          </ul>
+        </div>
+        <hr>
+        <h1>#4</h1>
+        <div class="dft-in">
+          <ul>
+            <li v-for="(infos, key, i) in student">
+              <template v-if="!Array.isArray(infos)">
+                {{ infos }}
+              </template>
+              <template v-else>
+                <ul>
+                  <li v-for="grades in infos">{{ grades }}</li>
+                </ul>
+              </template>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script src="script.js"></script>
